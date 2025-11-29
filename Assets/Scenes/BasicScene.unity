@@ -906,8 +906,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerBody
   playerRigidBody: {fileID: 2118078000}
-  forceAmount: 20
-  lateralForceAmount: 10
+  forceAmount: 800
+  lateralForceAmount: 400
+  jumpForceAmount: 200
 --- !u!1001 &3660121883841578171
 PrefabInstance:
   m_ObjectHideFlags: 0
