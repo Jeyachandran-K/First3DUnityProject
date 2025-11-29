@@ -1,5 +1,7 @@
 using UnityEngine;
+using UnityEngine.AI;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class PlayerBody : MonoBehaviour
 {
@@ -7,6 +9,7 @@ public class PlayerBody : MonoBehaviour
     [SerializeField] private float forceAmount;
     [SerializeField] private float lateralForceAmount;
     [SerializeField] private float jumpForceAmount;
+    //[SerializeField] private GameObject Obstacle;
 
     void Start()
     {
@@ -18,29 +21,37 @@ public class PlayerBody : MonoBehaviour
     {
         if (Keyboard.current.upArrowKey.isPressed)
         {
-            //transform.position += new Vector3(0, 0, 1);
-            //rigidbody.AddForce(Vector3.forward * forceAmount);
             playerRigidBody.linearVelocity = new Vector3(0, 0, 1) * forceAmount*Time.fixedDeltaTime;
         }
         if (Keyboard.current.downArrowKey.isPressed)
         {
-            //transform.position += new Vector3(0, 0, -1);
+            
             playerRigidBody.linearVelocity = new Vector3(0, 0, -1) * forceAmount * Time.fixedDeltaTime;
         }
         if (Keyboard.current.spaceKey.isPressed)
         {
-            //transform.position += new Vector3(0, 1, 0);
+            
             playerRigidBody.linearVelocity = new Vector3(0, 1, 0) * jumpForceAmount * Time.fixedDeltaTime;
         }
         if (Keyboard.current.rightArrowKey.isPressed)
         {
-            //transform.position += new Vector3(1, 0, 0);
+            
             playerRigidBody.linearVelocity = new Vector3(1, 0, 0) * lateralForceAmount * Time.fixedDeltaTime;
         }
         if (Keyboard.current.leftArrowKey.isPressed)
         {
-            //transform.position += new Vector3(-1, 0, 0);
+            
             playerRigidBody.linearVelocity = new Vector3(-1, 0, 0) * lateralForceAmount * Time.fixedDeltaTime;
+        }
+    }
+    private void OnCollisionEnter(Collision collision)
+
+    {
+        Debug.Log(collision.gameObject.name);
+        if (collision.gameObject.TryGetComponent<SpawnedObject>(out SpawnedObject obstacle))
+        {
+            Debug.Log(collision.gameObject.name);
+            SceneManager.LoadScene(0);
         }
     }
 }
