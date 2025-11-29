@@ -908,7 +908,7 @@ MonoBehaviour:
   playerRigidBody: {fileID: 2118078000}
   forceAmount: 800
   lateralForceAmount: 400
-  jumpForceAmount: 200
+  jumpForceAmount: 0
 --- !u!1001 &3660121883841578171
 PrefabInstance:
   m_ObjectHideFlags: 0
