@@ -47,10 +47,10 @@ public class PlayerBody : MonoBehaviour
     private void OnCollisionEnter(Collision collision)
 
     {
-        Debug.Log(collision.gameObject.name);
+        
         if (collision.gameObject.TryGetComponent<SpawnedObject>(out SpawnedObject obstacle))
-        {
-            Debug.Log(collision.gameObject.name);
+        {  
+            playerRigidBody.linearVelocity = Vector2.zero;
             SceneManager.LoadScene(0);
         }
     }
