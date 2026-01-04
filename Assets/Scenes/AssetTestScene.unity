@@ -767,6 +767,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: HumanF_Model
       objectReference: {fileID: 0}
+    - target: {fileID: 5866666021909216657, guid: 1841c298173cdad4db8df8602c8f1c8d, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 3422516925cab0248b2549dc0bcb22f6, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
